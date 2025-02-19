@@ -1,0 +1,22 @@
+<div class="container">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div>
+        <label for="email">Email</label>
+        <input class="input-box" type="email" id="email" formControlName="email">
+        <div *ngIf="loginForm.controls['email'].invalid && loginForm.controls['email'].touched" class="error">
+          Email is required and must be a valid email address.
+        </div>
+      </div>
+  
+      <div>
+        <label for="password">Password</label>
+        <input class="input-box" type="password" id="password" formControlName="password">
+        <div *ngIf="loginForm.controls['password'].invalid && loginForm.controls['password'].touched" class="error">
+          Password is required and must be at least 6 characters long.
+        </div>
+      </div>
+  
+      <button class="btn" type="submit" [disabled]="loginForm.invalid">Submit</button>
+    </form>
+  </div>
+  
